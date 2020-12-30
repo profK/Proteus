@@ -135,6 +135,7 @@ using GLOM.Geometry;
         hl.Add(label2);
         hl.Add(label3);
         hl.Add(buttontest);
+        buttontest.OnClick += button => { ProteusContext.Log("Clicked "+button.ToString()); };
         hl.Layout( new Point(0, 0), new Size(1024, 800));
         hl.Render(new Matrix(Matrix4x4.Identity));
     }

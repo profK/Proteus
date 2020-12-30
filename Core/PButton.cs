@@ -1,15 +1,17 @@
-﻿using Microsoft.JSInterop;
+﻿using System;
+using Microsoft.JSInterop;
 
 namespace Proteus.Core
 {
     public class PButton:HTMLComponent
     {
         private DotNetObjectReference<PButton> objRefFromJS;
+        public event Action<PButton> OnClick;
         public PButton(string text) : base(MakeHTML(text))
         {
             objRefFromJS = DotNetObjectReference.Create(this);
             ProteusContext.JSInvokeVoid("Proteus.attachOnClick",
-                _domElement,objRefFromJS,"OnClick");
+                _domElement,objRefFromJS,"OnClickReceiver");
         }
 
         private static string MakeHTML(string text)
@@ -18,9 +20,9 @@ namespace Proteus.Core
         }
 
         [JSInvokable]
-        public void OnClick()
+        public void OnClickReceiver()
         {
-            ProteusContext.Log("Clicked!");
+           OnClick?.Invoke(this);
         }
     }
 }

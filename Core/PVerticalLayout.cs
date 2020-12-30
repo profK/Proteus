@@ -1,6 +1,6 @@
 ﻿using GLOM;
 
-namespace Proteus
+namespace Proteus.Core
 {
     /***
      * convenience class

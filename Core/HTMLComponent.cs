@@ -3,7 +3,7 @@ using GLOM;
 using GLOM.Geometry;
 using Microsoft.JSInterop;
 
-namespace Proteus
+namespace Proteus.Core
 {
     public class HTMLComponent:AbstractUIComponent
     {

@@ -1,7 +1,8 @@
 ﻿using System;
 using GLOM.Geometry;
 
-namespace Proteus
+namespace Proteus.Core
+
 {
     public class PLabel:HTMLComponent
     {

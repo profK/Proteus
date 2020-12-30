@@ -91,13 +91,20 @@ using System.Numerics;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\jeffp\OneDrive\Documents\Workspaces\Proteus\App.razor"
-using GLOM;
+using System.Security.Cryptography;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\jeffp\OneDrive\Documents\Workspaces\Proteus\App.razor"
+using Proteus.Core;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\jeffp\OneDrive\Documents\Workspaces\Proteus\App.razor"
 using GLOM.Geometry;
 
 #line default
@@ -111,7 +118,7 @@ using GLOM.Geometry;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 24 "C:\Users\jeffp\OneDrive\Documents\Workspaces\Proteus\App.razor"
+#line 25 "C:\Users\jeffp\OneDrive\Documents\Workspaces\Proteus\App.razor"
        
 
     protected override void OnInitialized()
@@ -121,11 +128,13 @@ using GLOM.Geometry;
         PLabel label2 = new PLabel("TwoTwoTwo");
         label2.BackgroundColor = 0x00000FFFF;
         PLabel label3= new PLabel("Three");
+        PButton buttontest = new PButton("click me");
         PVerticalLayout hl =
             new PVerticalLayout();
         hl.Add(label1);
         hl.Add(label2);
         hl.Add(label3);
+        hl.Add(buttontest);
         hl.Layout( new Point(0, 0), new Size(1024, 800));
         hl.Render(new Matrix(Matrix4x4.Identity));
     }

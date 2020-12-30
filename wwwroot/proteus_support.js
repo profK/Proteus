@@ -49,6 +49,11 @@ var Proteus = {
             el.style[key] = value;
         }
     },
+    attachOnClick(el,objRef,methodname){
+        el.onclick = () =>{
+            objRef.invokeMethod(methodname);
+        };
+    },
     log(str){
         console.log(str);
     }

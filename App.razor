@@ -1,6 +1,7 @@
 @using System.Drawing.Drawing2D
 @using System.Numerics
-@using GLOM
+@using System.Security.Cryptography
+@using Proteus.Core
 @using GLOM.Geometry
 <!--
 If you want to enable Blazor routing, you should remove all of this contents,
@@ -30,11 +31,13 @@ and uncomment the below line. (See also: https://docs.microsoft.com/en-us/aspnet
         PLabel label2 = new PLabel("TwoTwoTwo");
         label2.BackgroundColor = 0x00000FFFF;
         PLabel label3= new PLabel("Three");
+        PButton buttontest = new PButton("click me");
         PVerticalLayout hl =
             new PVerticalLayout();
         hl.Add(label1);
         hl.Add(label2);
         hl.Add(label3);
+        hl.Add(buttontest);
         hl.Layout( new Point(0, 0), new Size(1024, 800));
         hl.Render(new Matrix(Matrix4x4.Identity));
     }

@@ -6,7 +6,7 @@ namespace Proteus
 {
     public static class ProteusContext
     {
-
+        
         private static IJSInProcessRuntime JsRuntime { get; set; }
 
         /***

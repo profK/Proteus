@@ -6,7 +6,7 @@ namespace Proteus
 {
     public class HTMLComponent:AbstractUIComponent
     {
-        private IJSObjectReference _domElement;
+        internal IJSObjectReference _domElement;
 
         public HTMLComponent(string html)
         {

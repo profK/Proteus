@@ -47,7 +47,7 @@ namespace GLOM
             float yAcc = 0;
             foreach (var tuple in Children)
             {
-                UINode comp = tuple.Item1;
+                IUINode comp = tuple.Item1;
                 Size compISize = comp.PreferredSize;
                 float w = compISize.Width;
                 float h = compISize.Height;

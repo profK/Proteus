@@ -44,6 +44,12 @@ var Proteus = {
         el.style.left = x+"px";
         el.style.top= y+"px";
     },
+    setElementParent(el,parent){
+        parent.appendChild(el);
+    },
+    removeElementFromParent(el){
+        el.parentNode.removeChild(el);
+    },
     log(str){
         console.log(str);
     }

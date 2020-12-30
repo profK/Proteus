@@ -4,18 +4,18 @@ using GLOM.Geometry;
 
 namespace GLOM
 {
-    public abstract class AbstractUIContainer<TInfo>:AbstractUIComponent
+    public abstract class AbstractUIContainer<TInfo>:AbstractUIComponent, IUIContainer<TInfo>
     {
-        public List<Tuple<UINode, TInfo>> Children = new List<Tuple<UINode, TInfo>>();
+        public List<Tuple<IUINode, TInfo>> Children = new List<Tuple<IUINode, TInfo>>();
         public bool ExpandChildenHorizontally { get; set; }
         public bool ExpandChildrenVertically { get; set; }
 
-        public virtual void Add(UINode child, TInfo layoutInfo = default(TInfo))
+        public virtual void Add(IUINode child, TInfo layoutInfo = default(TInfo))
         {
-            Children.Add(new Tuple<UINode, TInfo>(child,layoutInfo));
+            Children.Add(new Tuple<IUINode, TInfo>(child,layoutInfo));
         }
 
-        public virtual void Remove(UINode child)
+        public virtual void Remove(IUINode child)
         {
             foreach (var tuple in Children)
             {

@@ -3,7 +3,7 @@ using GLOM.Geometry;
 
 namespace GLOM
 {
-    public abstract class AbstractUIComponent:UINode
+    public abstract class AbstractUIComponent:IUINode
     {
         public Matrix Transformation { get; protected set; }
         public virtual Size PreferredSize { get; protected set; }

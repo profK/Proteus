@@ -120,7 +120,8 @@ using GLOM.Geometry;
         PLabel label1 = new PLabel("One");
         PLabel label2 = new PLabel("TwoTwoTwo");
         PLabel label3= new PLabel("Three");
-        VerticalLayout hl = new VerticalLayout();
+        HTMLContainerWrapper<VerticalLayoutInfo> hl = 
+            new HTMLContainerWrapper<VerticalLayoutInfo>(new VerticalLayout());
         hl.Add(label1);
         hl.Add(label2);
         hl.Add(label3);

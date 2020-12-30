@@ -42,8 +42,8 @@ namespace GLOM
         
         public override void Layout(Point pos, Size space)
         {
-            Size myPreferredISize = PreferredSize;
-            int pad = (int)(space.Height - myPreferredISize.Height) / Children.Count;
+            Size myPreferredSize = PreferredSize;
+            int pad = (int)(space.Height - myPreferredSize.Height) / Children.Count;
             float yAcc = 0;
             foreach (var tuple in Children)
             {
@@ -54,7 +54,7 @@ namespace GLOM
 
                 if (ExpandChildenHorizontally)
                 {
-                    w = myPreferredISize.Width;
+                    w = myPreferredSize.Width;
 
                 }
 
@@ -62,7 +62,7 @@ namespace GLOM
                 {
                     h += pad;
                 }
-
+            
                 comp.Layout(new Point(0, yAcc),
                     new Size(w, h));
                 yAcc += comp.Size.Height;

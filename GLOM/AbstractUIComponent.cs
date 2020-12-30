@@ -1,4 +1,5 @@
-﻿using GLOM.Geometry;
+﻿using System.Numerics;
+using GLOM.Geometry;
 
 namespace GLOM
 {
@@ -8,6 +9,11 @@ namespace GLOM
         public virtual Size PreferredSize { get; protected set; }
         public virtual Size MinSize { get; protected set; }
         public virtual Size Size { get; protected set; }
+
+        public AbstractUIComponent()
+        {
+            Transformation = new Matrix(Matrix4x4.Identity);
+        }
         
         public virtual void Layout(Point position, Size space)
         {

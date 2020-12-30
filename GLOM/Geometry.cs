@@ -68,7 +68,7 @@ namespace GLOM.Geometry
         private readonly Matrix4x4 _mat;
 
         //default is identity matrix
-         
+        
         
         public Matrix(Matrix4x4 matrix)
         {

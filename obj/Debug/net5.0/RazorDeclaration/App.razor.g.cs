@@ -119,9 +119,10 @@ using GLOM.Geometry;
         ProteusContext.SetRuntime(jsRuntime);
         PLabel label1 = new PLabel("One");
         PLabel label2 = new PLabel("TwoTwoTwo");
+        label2.BackgroundColor = 0x00000FFFF;
         PLabel label3= new PLabel("Three");
-        HTMLContainerWrapper<VerticalLayoutInfo> hl = 
-            new HTMLContainerWrapper<VerticalLayoutInfo>(new VerticalLayout());
+        PVerticalLayout hl =
+            new PVerticalLayout();
         hl.Add(label1);
         hl.Add(label2);
         hl.Add(label3);

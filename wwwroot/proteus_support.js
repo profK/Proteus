@@ -38,17 +38,16 @@ var Proteus = {
 
         return [domRect.width,domRect.height];
     },
-    setElementLayout(el,x,y,width,height){
-        console.log("x,y"+x+","+y)
-        el.style.position = "fixed";
-        el.style.left = x+"px";
-        el.style.top= y+"px";
-    },
     setElementParent(el,parent){
         parent.appendChild(el);
     },
     removeElementFromParent(el){
         el.parentNode.removeChild(el);
+    },
+    resetStyle(el,styles){
+        for (const [key, value] of Object.entries(styles)) {
+            el.style[key] = value;
+        }
     },
     log(str){
         console.log(str);

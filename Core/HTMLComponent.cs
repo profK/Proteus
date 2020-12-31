@@ -16,9 +16,9 @@ namespace Proteus.Core
                 "Proteus.htmlToElement", html);
             float[] sz= ProteusContext.JSInvoke<float[]>(
                 "Proteus.getElementSize", _domElement);
-            PreferredSize = new Size(sz[0], sz[1]);
-            MinSize = PreferredSize;
-            ProteusContext.Log("html size="+PreferredSize.ToString());
+            NaturalSize = new Size(sz[0], sz[1]);
+            MinSize = NaturalSize;
+            ProteusContext.Log("html size="+NaturalSize.ToString());
         }
         
                
@@ -32,6 +32,8 @@ namespace Proteus.Core
             _styleSettings["position"] = "fixed";
             _styleSettings["left"] = origin.X + "px";
             _styleSettings["top"] = origin.Y + "px";
+            _styleSettings["width"] = Size.Width+"px";
+            _styleSettings["height"] = Size.Height + "px";
             ProteusContext.JSInvokeVoid(
                 "Proteus.resetStyle",_domElement,_styleSettings);
         }

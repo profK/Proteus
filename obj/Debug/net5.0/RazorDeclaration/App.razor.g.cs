@@ -130,8 +130,13 @@ using GLOM.Geometry;
  
         PVerticalLayout hl =
             new PVerticalLayout();
+
+        PWindow window = new PWindow("icons/Window_Frame.png",
+            new Insets(36,8,8,8));
+        window.OverrideSize = new Size(200, 200);
      
         hl.Add(buttontest);
+        hl.Add(window);
        
         hl.Layout( new Point(0, 0), new Size(1024, 800));
         hl.Render(new Matrix(Matrix4x4.Identity));

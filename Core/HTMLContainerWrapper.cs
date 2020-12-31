@@ -24,6 +24,13 @@ namespace Proteus.Core
         public Size MinSize => _wrapped.MinSize;
 
         public Size Size => _wrapped.Size;
+        public Size OverrideSize
+        {
+            get => _wrapped.OverrideSize;
+            set => _wrapped.OverrideSize = value;
+        }
+
+        public Size NaturalSize => _wrapped.NaturalSize;
 
         public void Layout(Point position, Size space)
         {

@@ -8,6 +8,10 @@ namespace GLOM
         public Size PreferredSize { get; }
         public Size MinSize { get; }
         public Size Size { get;  }
+        
+        public Size OverrideSize { get; set; }
+        
+        public Size NaturalSize { get;  }
 
         public void Layout(Point position, Size space);
 

@@ -1,14 +1,13 @@
 ﻿using System;
 using GLOM.Geometry;
-using Proteus;
 
 namespace GLOM
 {
-    public struct VerticalLayoutInfo
+    public struct HorizontalLayoutInfo
     {
         
     }
-    public class VerticalLayout:AbstractUIContainer<VerticalLayoutInfo>
+    public class  HorizontalLayout:AbstractUIContainer<HorizontalLayoutInfo>
     {
         public override Size NaturalSize
         {
@@ -18,8 +17,8 @@ namespace GLOM
                 float h = 0;
                 foreach (var tuple in Children)
                 {
-                    w += tuple.Item1.PreferredSize.Width;
-                    h = Math.Max(h, tuple.Item1.PreferredSize.Height);
+                    h += tuple.Item1.PreferredSize.Height;
+                    w = Math.Max(w, tuple.Item1.PreferredSize.Width);
                 }
 
                 return new Size(w, h);
@@ -33,8 +32,8 @@ namespace GLOM
                 float h = 0;
                 foreach (var tuple in Children)
                 {
-                    w += tuple.Item1.MinSize.Width;
-                    h = Math.Max(h, tuple.Item1.MinSize.Height);
+                    h += tuple.Item1.MinSize.Height;
+                    w = Math.Max(w, tuple.Item1.MinSize.Width);
                 }
 
                 return new Size(w, h);
@@ -45,29 +44,28 @@ namespace GLOM
         {
             Size myPreferredSize = PreferredSize;
             int pad = (int)(space.Height - myPreferredSize.Height) / Children.Count;
-            float yAcc = 0;
+            float xAcc = 0;
             foreach (var tuple in Children)
             {
                 IUINode comp = tuple.Item1;
                 Size compISize = comp.PreferredSize;
-                ProteusContext.Log(comp.GetType().ToString()+" "+compISize.ToString());
                 float w = compISize.Width;
                 float h = compISize.Height;
 
                 if (ExpandChildenHorizontally)
                 {
-                    w = myPreferredSize.Width;
+                    w += pad;
 
                 }
 
                 if (ExpandChildrenVertically)
                 {
-                    h += pad;
+                    h = myPreferredSize.Height;
                 }
-                ProteusContext.Log(comp.GetType().ToString()+" "+compISize.ToString());
-                comp.Layout(new Point(0, yAcc),
+            
+                comp.Layout(new Point(xAcc,0),
                     new Size(w, h));
-                yAcc += comp.Size.Height;
+                xAcc += comp.Size.Width;
             }
         }
 

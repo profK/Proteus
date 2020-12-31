@@ -54,6 +54,25 @@ var Proteus = {
             objRef.invokeMethod(methodname);
         };
     },
+    setMouseCallbacks(el,objRef,downMethodName,upMethodName,moveMethodName){
+        function proteusMouseEvent(mouseEvt){
+            return {
+                ClientPosX: mouseEvt.offsetX,
+                ClientPosY: mouseEvt.offsetY
+            };
+        }
+        el.addEventListener("mousedown", (evt)=>{
+            objRef.invokeMethod(downMethodName,proteusMouseEvent(evt));
+        });
+        el.addEventListener("mouseup", (evt)=>{
+            objRef.invokeMethod(upMethodName,proteusMouseEvent(evt));
+        });
+        el.addEventListener("mousemove", (evt)=>{
+            let pme = proteusMouseEvent(evt)
+            console.log(pme);
+            objRef.invokeMethod(moveMethodName,pme);
+        });
+    },
     log(str){
         console.log(str);
     }

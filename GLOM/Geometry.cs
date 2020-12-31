@@ -69,6 +69,7 @@ namespace GLOM.Geometry
 
         //default is identity matrix
         
+        public static readonly Matrix Identity = new Matrix(Matrix4x4.Identity);
         
         public Matrix(Matrix4x4 matrix)
         {
@@ -114,6 +115,13 @@ namespace GLOM.Geometry
         private string MatLine(float a, float b, float c, float d)
         {
             return String.Format("{0,4}{1,4}{2,4},{3,4}", a, b, c, d);
+        }
+
+        public Matrix Translate(in float deltaX, in float deltay)
+        {
+            Matrix4x4 newMat = _mat;
+            newMat.Translation = newMat.Translation + new Vector3(deltaX, deltay, 0);
+            return new Matrix(newMat);
         }
     }
 }

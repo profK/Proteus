@@ -618,3 +618,4 @@ C:\Users\jeffp\OneDrive\Documents\Workspaces\Proteus\obj\Debug\net5.0\Proteus.dl
 C:\Users\jeffp\OneDrive\Documents\Workspaces\Proteus\obj\Debug\net5.0\ref\Proteus.dll
 C:\Users\jeffp\OneDrive\Documents\Workspaces\Proteus\obj\Debug\net5.0\Proteus.pdb
 C:\Users\jeffp\OneDrive\Documents\Workspaces\Proteus\bin\Debug\net5.0\wwwroot\proteus_support.js
+C:\Users\jeffp\OneDrive\Documents\Workspaces\Proteus\bin\Debug\net5.0\wwwroot\icons\pdf_icon_512.png

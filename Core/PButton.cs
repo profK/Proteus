@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using Microsoft.JSInterop;
 
 namespace Proteus.Core
@@ -7,17 +8,29 @@ namespace Proteus.Core
     {
         private DotNetObjectReference<PButton> objRefFromJS;
         public event Action<PButton> OnClick;
-        public PButton(string text) : base(MakeHTML(text))
+        public PButton(string text,string bkgImage=null) : base(MakeHTML(text,bkgImage))
         {
             objRefFromJS = DotNetObjectReference.Create(this);
             ProteusContext.JSInvokeVoid("Proteus.attachOnClick",
                 _domElement,objRefFromJS,"OnClickReceiver");
         }
 
-        private static string MakeHTML(string text)
+        private static string MakeHTML(string text,string bkgdImage)
         {
-            return "<button>" + text + "</button>";
+            if (bkgdImage == null)
+            {
+                return "<button>" + text + "</button>";
+            }
+            else
+            {
+                return "<button>" + text + 
+                       "<img src='"+bkgdImage+"'/>" +
+                    "</button>";
+            }
+           
         }
+
+       
 
         [JSInvokable]
         public void OnClickReceiver()

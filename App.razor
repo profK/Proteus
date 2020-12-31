@@ -27,18 +27,15 @@ and uncomment the below line. (See also: https://docs.microsoft.com/en-us/aspnet
     protected override void OnInitialized()
     {
         ProteusContext.SetRuntime(jsRuntime);
-        PLabel label1 = new PLabel("One");
-        PLabel label2 = new PLabel("TwoTwoTwo");
-        label2.BackgroundColor = 0x00000FFFF;
-        PLabel label3= new PLabel("Three");
-        PButton buttontest = new PButton("click me");
+       
+        PButton buttontest = new PButton("","icons/pdf_icon_100.png");
+        buttontest.OnClick += button => { ProteusContext.Log("Clicked "+button.ToString()); };
+ 
         PVerticalLayout hl =
             new PVerticalLayout();
-        hl.Add(label1);
-        hl.Add(label2);
-        hl.Add(label3);
+     
         hl.Add(buttontest);
-        buttontest.OnClick += button => { ProteusContext.Log("Clicked "+button.ToString()); };
+       
         hl.Layout( new Point(0, 0), new Size(1024, 800));
         hl.Render(new Matrix(Matrix4x4.Identity));
     }

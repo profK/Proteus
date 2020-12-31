@@ -11,6 +11,13 @@ namespace Proteus.Core
         public PButton(string text,string bkgImage=null) : base(MakeHTML(text,bkgImage))
         {
             objRefFromJS = DotNetObjectReference.Create(this);
+            if (bkgImage != null)
+            {
+                _styleSettings["background-size"] = "100%";
+                _styleSettings["background-origin"] = "content";
+                _styleSettings["background-image"] = "url(" + bkgImage + ")";
+            }
+         
             ProteusContext.JSInvokeVoid("Proteus.attachOnClick",
                 _domElement,objRefFromJS,"OnClickReceiver");
         }
@@ -23,9 +30,7 @@ namespace Proteus.Core
             }
             else
             {
-                return "<button>" + text + 
-                       "<img src='"+bkgdImage+"'/>" +
-                    "</button>";
+                return "<button>" + text + "</button>";
             }
            
         }

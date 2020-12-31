@@ -127,14 +127,14 @@ using GLOM.Geometry;
        
         PButton buttontest = new PButton("","icons/pdf_icon_100.png");
         buttontest.OnClick += button => { ProteusContext.Log("Clicked "+button.ToString()); };
- 
+        buttontest.OverrideSize = new Size(50, 50);
         PVerticalLayout hl =
             new PVerticalLayout();
 
-        PWindow window = new PWindow("icons/Window_Frame.png",
+       PWindow window = new PWindow("icons/Window_Frame.png",
             new Insets(36,8,8,8));
+        
         window.OverrideSize = new Size(200, 200);
-     
         hl.Add(buttontest);
         hl.Add(window);
        

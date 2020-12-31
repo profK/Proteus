@@ -14,11 +14,14 @@ namespace Proteus.Core
         {
             _domElement = ProteusContext.JSInvoke<IJSObjectReference>(
                 "Proteus.htmlToElement", html);
-            float[] sz= ProteusContext.JSInvoke<float[]>(
+            float[] sza= ProteusContext.JSInvoke<float[]>(
                 "Proteus.getElementSize", _domElement);
-            NaturalSize = new Size(sz[0], sz[1]);
+            Size size = new Size(sza[0], sza[1]);
+            ProteusContext.Log(html);
+            ProteusContext.Log("html size=" + size.ToString());
+            NaturalSize = size;
             MinSize = NaturalSize;
-            ProteusContext.Log("html size="+NaturalSize.ToString());
+     
         }
         
                

@@ -21,6 +21,8 @@
         public PWindow(string borderImageURL, Insets insets) : base(MakeHTML())
         {
             _styleSettings["border-image"] = "url('" + borderImageURL + "')";
+            _styleSettings["border-width"] =  insets.Top.ToString() + "px " + insets.Right.ToString() + "px " +
+                                              insets.Bottom.ToString() + "px " + insets.Left.ToString()+"px";
             _styleSettings["border-image-slice"] =
                 insets.Top.ToString() + " " + insets.Right.ToString() + " " +
                 insets.Bottom.ToString() + " " + insets.Left.ToString();

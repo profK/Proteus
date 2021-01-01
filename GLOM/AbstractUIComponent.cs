@@ -9,7 +9,7 @@ namespace GLOM
         public Matrix Transformation { get; protected set; }
 
       
-        private IUINode _iuiNodeImplementation;
+   
 
         public virtual Size PreferredSize
         {
